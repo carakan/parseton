@@ -1,0 +1,20 @@
+
+%h3 Code challenge
+= form_tag('/search', class: 'form-inline') do
+  .form-group
+    = text_field_tag('query', params[:query], placeholder: 'Enter search:')
+    = submit_tag 'search', class: 'btn btn-primary btn-lg'
+
+- if @results
+  - @results.each do |result|
+    .row.bg-info
+      .col-md-2
+        %h5 Name:
+        = result['Name']
+      .col-md-5
+        %h5 Type:
+        = result['Type']
+      .col-md-5
+        %h5 Designed by:
+        = result['Designed by']
+    %br
